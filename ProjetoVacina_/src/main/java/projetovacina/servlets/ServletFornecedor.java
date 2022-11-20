@@ -27,7 +27,7 @@ public class ServletFornecedor extends HttpServlet {
 		Fornecedor delfornecedor = dao.findById(Fornecedor.class, fornecedorid).get();
 		
 		dao.delete(delfornecedor);
-		response.sendRedirect("formLoginUsuario.jsp");
+		response.sendRedirect("formMenuPrincipal.jsp");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -41,9 +41,9 @@ public class ServletFornecedor extends HttpServlet {
 			Endereco novoEndereco = new Endereco();
 			novoFornecedor.setNome(request.getParameter("nome"));
 			novoFornecedor.setCnpj(request.getParameter("cnpj"));
-			novoEndereco.setRua(request.getParameter("rua"));
-			novoEndereco.setNumero(request.getParameter("numero"));
-			novoEndereco.setBairro(request.getParameter("bairro"));
+			novoEndereco.setRua(request.getParameter("endereco_rua"));
+			novoEndereco.setNumero(request.getParameter("endereco_numero"));
+			novoEndereco.setBairro(request.getParameter("endereco_bairro"));
 			novoFornecedor.setEndereco(novoEndereco);
 			
 			
@@ -64,7 +64,7 @@ public class ServletFornecedor extends HttpServlet {
 			dao.update(fornecedor);
 			
 		}
-		response.sendRedirect("formLoginUsuario.jsp");
+		response.sendRedirect("formMenuPrincipal.jsp");
 	}
 
 }

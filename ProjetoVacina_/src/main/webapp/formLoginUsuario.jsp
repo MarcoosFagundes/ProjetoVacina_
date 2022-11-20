@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Insert title here</title>
+<title>Login</title>
 </head>
 <body>
 	<div>
@@ -18,7 +18,9 @@
 		<input type="password" name="senha"/>
 		<br/>
 		
-		<input type="submit" value="salvar"/>
+		<a class="btn btn-danger btn-sm" href=formCadastroUsuario.jsp> Entrar</a>
+		
+		<a class="btn btn-danger btn-sm" href=formCadastroUsuario.jsp> Novo Usuário</a>
 	
 	</form>
 	</div>
