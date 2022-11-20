@@ -18,7 +18,6 @@ public class Usuario {
 	@Column(unique = true)
 	private String login;
 	
-	@Column(unique = true)
 	private String senha;
 
 	public int getId() {
