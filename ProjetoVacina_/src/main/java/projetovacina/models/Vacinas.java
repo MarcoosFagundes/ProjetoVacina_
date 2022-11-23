@@ -19,13 +19,12 @@ public class Vacinas {
 	@Column(unique = true)
 	private String nome;
 	
-	@ManyToOne
-	private Usuario user;
-	
 	private int qnt_dose;
 	
 	@Enumerated(EnumType.STRING)
 	private TipoVacinaEnum tipo;
+	
+	private String peridoVencimento;
 	
 	private String descricao;
 
@@ -43,14 +42,6 @@ public class Vacinas {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public Usuario getUser() {
-		return user;
-	}
-
-	public void setUser(Usuario user) {
-		this.user = user;
 	}
 
 	public int getQnt_dose() {
@@ -77,6 +68,12 @@ public class Vacinas {
 		this.descricao = descricao;
 	}
 	
-	
+	public String getPeridoVencimento() {
+		return peridoVencimento;
+	}
+
+	public void setPeridoVencimento(String peridoVencimento) {
+		this.peridoVencimento = peridoVencimento;
+	}
 		
 }

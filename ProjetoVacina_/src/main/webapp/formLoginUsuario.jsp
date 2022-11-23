@@ -18,7 +18,7 @@
 		<input type="password" name="senha"/>
 		<br/>
 		
-		<a class="btn btn-danger btn-sm" href=formCadastroUsuario.jsp> Entrar</a>
+		<a class="btn btn-danger btn-sm" href=formMenuPrincipal.jsp> Entrar</a>
 		
 		<a class="btn btn-danger btn-sm" href=formCadastroUsuario.jsp> Novo Usuário</a>
 	
