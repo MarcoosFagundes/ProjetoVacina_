@@ -7,9 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import projetovacina.dao.UsuarioDao;
 import projetovacina.dao.VacinasDao;
-import projetovacina.models.Usuario;
 import projetovacina.models.Vacinas;
 import projetovacina.models.TipoVacinaEnum;
 
