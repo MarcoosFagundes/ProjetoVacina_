@@ -1,4 +1,4 @@
-package projetovacina.models;
+package projetovacina.tipoenum;
 
 public enum TipoVacinaEnum {
 	Atenuadas, Inativas;

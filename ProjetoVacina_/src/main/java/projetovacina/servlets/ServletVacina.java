@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import projetovacina.dao.VacinasDao;
 import projetovacina.models.Vacinas;
-import projetovacina.models.TipoVacinaEnum;
+import projetovacina.tipoenum.TipoVacinaEnum;
 
 @WebServlet({ "/ServletVacina", "/controllerVacina" })
 public class ServletVacina extends HttpServlet {

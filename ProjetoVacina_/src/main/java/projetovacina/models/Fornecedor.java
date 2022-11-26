@@ -22,7 +22,9 @@ public class Fornecedor {
 	@AttributeOverrides({
 		@AttributeOverride(name = "rua", column = @Column(name="endereco_rua")),
 		@AttributeOverride(name = "numero", column = @Column(name="endereco_numero")),
-		@AttributeOverride(name = "bairro", column = @Column(name="endereco_bairro"))
+		@AttributeOverride(name = "bairro", column = @Column(name="endereco_bairro")),
+		@AttributeOverride(name = "cidade", column = @Column(name="endereco_cidade")),
+		@AttributeOverride(name = "estado", column = @Column(name="endereco_estado"))
 	})
 	private Endereco endereco;
 	

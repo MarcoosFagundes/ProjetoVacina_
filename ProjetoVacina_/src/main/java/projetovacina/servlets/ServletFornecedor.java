@@ -12,6 +12,7 @@ import projetovacina.dao.UsuarioDao;
 import projetovacina.models.Endereco;
 import projetovacina.models.Fornecedor;
 import projetovacina.models.Usuario;
+import projetovacina.tipoenum.TipoEstadosEnum;
 
 @WebServlet({ "/ServletFornecedor", "/controllerFornecedor" })
 public class ServletFornecedor extends HttpServlet {
@@ -44,6 +45,8 @@ public class ServletFornecedor extends HttpServlet {
 			novoEndereco.setRua(request.getParameter("endereco_rua"));
 			novoEndereco.setNumero(request.getParameter("endereco_numero"));
 			novoEndereco.setBairro(request.getParameter("endereco_bairro"));
+			novoEndereco.setCidade(request.getParameter("endereco_cidade"));
+			novoEndereco.setEstado(TipoEstadosEnum.valueOf(request.getParameter("endereco_estado")));
 			novoFornecedor.setEndereco(novoEndereco);
 			
 			
@@ -59,6 +62,8 @@ public class ServletFornecedor extends HttpServlet {
 			endereco.setRua(request.getParameter("rua"));
 			endereco.setNumero(request.getParameter("numero"));
 			endereco.setBairro(request.getParameter("bairro"));
+			endereco.setCidade(request.getParameter("endereco_cidade"));
+			endereco.setEstado(TipoEstadosEnum.valueOf(request.getParameter("endereco_estado")));
 			fornecedor.setEndereco(endereco);
 			
 			dao.update(fornecedor);
