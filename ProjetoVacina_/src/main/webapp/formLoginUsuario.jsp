@@ -25,7 +25,7 @@
 	crossorigin="anonymous">
 </head>
 <body>
-<section class="vh-100 gradient-custom">
+<form class="vh-100 gradient-custom" action="controllerValidUser" method="post">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -39,15 +39,16 @@
 
               <div class="form-outline form-white mb-4">
               	<label class="form-label" for="typeEmailX">Usuario</label>
-                <input type="email" id="typeEmailX" class="form-control form-control-lg" />
+                <input type="text" class="form-control form-control-lg" name="nome"/>
               </div>
 
               <div class="form-outline form-white mb-4">
               	<label class="form-label" for="typePasswordX">Senha</label>
-                <input type="password" id="typePasswordX" class="form-control form-control-lg" />
+                <input type="password" class="form-control form-control-lg" name="senha"/>
               </div>
+              
 
-              <a class="btn btn-outline-light btn-lg px-5" type="submit" href="formMenuPrincipal.jsp">Logar </a>
+              <input class="btn btn-outline-light btn-lg px-5" type="submit" value="Logar"/>
 
             </div>
 
@@ -61,6 +62,6 @@
       </div>
     </div>
   </div>
-</section>
+</form>
 </body>
 </html>

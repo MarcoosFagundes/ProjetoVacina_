@@ -18,7 +18,7 @@ public class ServletUsuario extends HttpServlet {
         super();
     }
 
-protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		
 		UsuarioDao dao = new UsuarioDao();
 		long usuarioid = Long.parseLong(request.getParameter("usuarioid"));
@@ -57,5 +57,4 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		}
 		response.sendRedirect("formLoginUsuario.jsp");
 	}
-
 }
