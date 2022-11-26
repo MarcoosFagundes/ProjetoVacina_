@@ -54,7 +54,7 @@
 
             </div>
 			<div>
-              <p class="mb-0"><a href="formCadastroUsuario.jsp" class="text-white-50 fw-bold">Voltar para tela de Login</a>
+              <p class="mb-0"><a href="formLoginUsuario.jsp" class="text-white-50 fw-bold">Voltar para tela de Login</a>
               </p>
             </div>
           </div>
