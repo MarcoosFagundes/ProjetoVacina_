@@ -7,7 +7,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Menu Inicial</title>
 <style type="text/css">
-
+.div form{
+	display: flex;
+    justify-content: space-around;
+    margin-top: 35px;
+    margin-right: 350px;
+}
+.div input{
+	border-radius: 5px;
+}
 </style>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
@@ -22,15 +30,19 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+    <div class="collapse navbar-collapse justify-content-center">
       <div class="navbar-nav">
-        <a style="color: white; font-size: 22px" class="nav-link active" aria-current="page" href="#">Home</a>
-        <a style="color: white; font-size: 22px" class="nav-link active" href="#">Features</a>
-        <a style="color: white; font-size: 22px" class="nav-link active" href="#">Pricing</a>
-        <a style="color: white; font-size: 22px" class="nav-link active" href="#">Disabled</a>
+        <a style="color: white; font-size: 22px; margin-right: 50px" class="nav-link active" href="formMenuPrincipal.jsp">Inicio</a>
+        <a style="color: white; font-size: 22px; margin-right: 50px" class="nav-link active" href="formCadastroVacinas.jsp">Registrar Vacina</a>
+        <a style="color: white; font-size: 22px; margin-right: 50px" class="nav-link active" href="formCadastroFornecedor.jsp">Registrar Fornecedor</a>
       </div>
     </div>
   </div>
 </nav>
+	<div class="div">
+		<form class="form" action="controllerFornecedor" method="post">
+			<input type="text" placeholder="Pesquisar Vacina" name="nome"/>	
+		</form>
+	</div>
 </body>
 </html>
