@@ -8,7 +8,6 @@
 <title>Menu Inicial</title>
 <style type="text/css">
 
-}
 </style>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
@@ -20,16 +19,15 @@
 <nav style="background: linear-gradient(to right, rgba(106, 17, 203, 1),
 		rgba(37, 117, 252, 1))" class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="#">Home</a>
-        <a class="nav-link" href="#">Features</a>
-        <a class="nav-link" href="#">Pricing</a>
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        <a style="color: white; font-size: 22px" class="nav-link active" aria-current="page" href="#">Home</a>
+        <a style="color: white; font-size: 22px" class="nav-link active" href="#">Features</a>
+        <a style="color: white; font-size: 22px" class="nav-link active" href="#">Pricing</a>
+        <a style="color: white; font-size: 22px" class="nav-link active" href="#">Disabled</a>
       </div>
     </div>
   </div>
