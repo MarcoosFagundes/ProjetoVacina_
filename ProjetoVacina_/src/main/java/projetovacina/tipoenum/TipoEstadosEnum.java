@@ -28,5 +28,4 @@ public enum TipoEstadosEnum {
 	SP,
 	SE,
 	TO
-
 }
