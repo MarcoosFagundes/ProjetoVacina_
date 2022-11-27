@@ -1,3 +1,7 @@
+<%@page import="projetovacina.dao.VacinasDao"%>
+<%@page import="java.util.List"%>
+<%@page import="projetovacina.dao.Dao"%>
+<%@page import="projetovacina.models.Vacinas"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -9,7 +13,7 @@
 <style type="text/css">
 .div form{
 	display: flex;
-    justify-content: space-around;
+    justify-content: center;
     margin-top: 35px;
     margin-right: 350px;
 }
@@ -24,6 +28,10 @@
 	crossorigin="anonymous">
 </head>
 <body>
+<%
+	VacinasDao dao = new VacinasDao();
+	List<Vacinas> listaVacina = dao.findAll(Vacinas.class);
+%>
 <nav style="background: linear-gradient(to right, rgba(106, 17, 203, 1),
 		rgba(37, 117, 252, 1))" class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
@@ -36,16 +44,27 @@
         <a style="color: white; font-size: 22px; margin-right: 50px" class="nav-link active" href="formCadastroVacinas.jsp">Registrar Vacina</a>
         <a style="color: white; font-size: 22px; margin-right: 50px" class="nav-link active" href="formCadastroFornecedor.jsp">Registrar Fornecedor</a>
       </div>
-      <div>
+      <div class="div">
       	<a style="color: white; font-size: 22px;" class="nav-link active" href="formCadastroFornecedor.jsp">Logout</a>
       </div>
     </div>
   </div>
 </nav>
-	<div class="div">
-		<form class="form" action="controllerFornecedor" method="post">
-			<input type="text" placeholder="Pesquisar Vacina" name="nome"/>	
+	<div style="display" class="div">
+		<form class="form" action="controllerVacina" method="post">
+			<input type="text" placeholder="Pesquisar Vacina" name="nome"/>
+			<button style="margin-left: 15px;
+    border-radius: 5px;">Pesquisar</button>
 		</form>
+	</div>
+	
+	<div>
+		<%
+			for (Vacinas obj : listaVacina)
+			{
+				
+			}
+		%>
 	</div>
 </body>
 </html>

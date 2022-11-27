@@ -5,15 +5,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Registro Usuario</title>
+<title>Registro Vacina</title>
 <style type="text/css">
 .gradient-custom {
-	/* fallback for old browsers */
 	background: #6a11cb;
-	/* Chrome 10-25, Safari 5.1-6 */
 	background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1),
 		rgba(37, 117, 252, 1));
-	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	background: linear-gradient(to right, rgba(106, 17, 203, 1),
 		rgba(37, 117, 252, 1))
 }
@@ -61,8 +58,8 @@
 							</div>
 							<div>
 								<p class="mb-0">
-									<a href="formCadastroUsuario.jsp" class="text-white-50 fw-bold">Voltar
-										para tela de Login</a>
+									<a href="formMenuPrincipal.jsp" class="text-white-50 fw-bold">Voltar
+										para Manu</a>
 								</p>
 							</div>
 						</div>

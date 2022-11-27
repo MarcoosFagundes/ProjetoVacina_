@@ -8,12 +8,9 @@
 <title>Registro Usuario</title>
 <style type="text/css">
 .gradient-custom {
-	/* fallback for old browsers */
 	background: #6a11cb;
-	/* Chrome 10-25, Safari 5.1-6 */
 	background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1),
 		rgba(37, 117, 252, 1));
-	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	background: linear-gradient(to right, rgba(106, 17, 203, 1),
 		rgba(37, 117, 252, 1))
 }
@@ -34,7 +31,8 @@
 
             <div class="mb-md-5 mt-md-4 pb-5">
 
-				
+			<h2>Registro Usuario</h2>
+			
 			<div class="form-outline form-white mb-4">
               	<label class="form-label" for="typeEmailX">Nome</label>
                 <input type="text" class="form-control form-control-lg" name="nome" />
