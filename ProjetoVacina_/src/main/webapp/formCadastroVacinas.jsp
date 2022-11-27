@@ -42,14 +42,24 @@
 
 								<div class="form-outline form-white mb-4">
 									<input type="number" class="form-control form-control-lg"
-										placeholder="Numero de Doses. Ex.; 1, 2, 3" name="qnt_dose" />
+										placeholder="Numero de Doses. Ex.; 1, 2, 3" name="qtd_doses" />
 								</div>
 
 								<div class="form-outline form-white mb-4">
-									<select class="form-control form-control-lg" type="text" placeholder="Tipo Vacina">
-										<option placeholder="Atenuadas"></option>
-										<option placeholder="Inativas"></option>
+									<select class="form-control form-control-lg" type="text" placeholder="Tipo Vacina" name="tipo">
+										<option value="Atenuadas">Atenuadas</option>
+										<option value="Inativas">Inativas</option>
 									</select>
+								</div>
+								
+								<div class="form-outline form-white mb-4">
+									<input type="text" class="form-control form-control-lg"
+										placeholder="Periodo Vencimento. Ex; um ano." name="vencimento" />
+								</div>
+								
+								<div class="form-outline form-white mb-4">
+									<input type="text" class="form-control form-control-lg" 
+										placeholder="Descrição" rows="3" name="descricao" />
 								</div>
 
 								<input class="btn btn-outline-light btn-lg px-5" type="submit"

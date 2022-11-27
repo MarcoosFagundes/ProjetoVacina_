@@ -48,7 +48,7 @@
   </div>
 </nav>
 	<div style="display" class="div">
-		<form class="form" action="controllerVacina" method="post">
+		<form class="form" action="controllerFornecedor" method="post">
 			<input type="text" placeholder="Pesquisar Vacina" name="nome"/>
 			<button style="margin-left: 15px;
     border-radius: 5px;">Pesquisar</button>
