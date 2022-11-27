@@ -22,7 +22,7 @@
 	crossorigin="anonymous">
 </head>
 <body>
-	<form class="vh-100 gradient-custom" action="controllerUsuario"
+	<form class="vh-100 gradient-custom" action="controllerVacina"
 		method="post">
 		<div class="container py-5 h-100">
 			<div

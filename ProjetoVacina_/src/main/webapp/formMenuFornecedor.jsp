@@ -9,7 +9,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Menu Inicial</title>
+<title>Lista de Fornecedores</title>
 <style type="text/css">
 .div form{
 	display: flex;
@@ -39,7 +39,7 @@
         <a style="color: white; font-size: 22px; margin-right: 50px" class="nav-link active" href="formMenuPrincipal.jsp">Inicio</a>
         <a style="color: white; font-size: 22px; margin-right: 50px" class="nav-link active" href="formCadastroVacinas.jsp">Registrar Vacina</a>
         <a style="color: white; font-size: 22px; margin-right: 50px" class="nav-link active" href="formCadastroFornecedor.jsp">Registrar Fornecedor</a>
-        <a style="color: white; font-size: 22px; margin-right: 50px" class="nav-link active" href="formCadastroFornecedor.jsp">Lista de Fornecedores</a>
+        <a style="color: white; font-size: 22px; margin-right: 50px" class="nav-link active" href="formMenuFornecedor.jsp">Lista de Fornecedores</a>
       </div>
       <div class="div">
       	<a style="color: white; font-size: 22px;" class="nav-link active" href="formCadastroFornecedor.jsp">Logout</a>
@@ -49,7 +49,7 @@
 </nav>
 	<div style="display" class="div">
 		<form class="form" action="controllerFornecedor" method="post">
-			<input type="text" placeholder="Pesquisar Vacina" name="nome"/>
+			<input type="text" placeholder="Pesquisar Fornecedor" name="nome"/>
 			<button style="margin-left: 15px;
     border-radius: 5px;">Pesquisar</button>
 		</form>
@@ -58,18 +58,14 @@
 <table class="table table-hover">
   <thead class="table-dark">
 	<tr>
+      <th scope="col">Nome Fornecedor</th>
       <th scope="col">Nome Vacina</th>
-      <th scope="col">Numero de Doses</th>
-      <th scope="col">Tipo Vacina</th>
-      <th scope="col">Periodo Vencimento</th>
     </tr>
   </thead>
   <tbody>
 	 <tr>
+      <td>Alberto</td>
       <td>Gripe A</td>
-      <td>1</td>
-      <td>Atenuada</td>
-      <td>6 meses</td>
       <td><button type="button" class="btn btn-success">Editar</button></td>
       <td><button type="button" class="btn btn-danger">Excluir</button></td>
     </tr>

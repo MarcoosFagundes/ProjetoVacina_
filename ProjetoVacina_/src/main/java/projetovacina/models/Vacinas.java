@@ -16,7 +16,7 @@ public class Vacinas {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private long id;
 	
 	@Column(unique = true)
 	private String nome;
@@ -30,11 +30,11 @@ public class Vacinas {
 	
 	private String descricao;
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

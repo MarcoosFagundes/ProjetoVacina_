@@ -94,7 +94,7 @@
 
             </div>
 			<div>
-              <p class="mb-0"><a href="formMenuPrincipal.jsp" class="text-white-50 fw-bold">Voltar para Menu</a>
+              <p class="mb-0"><a href="formMenuFornecedor.jsp" class="text-white-50 fw-bold">Voltar para Lista de Fornecedores</a>
               </p>
             </div>
           </div>

@@ -1,7 +1,8 @@
-<%@page import="projetovacina.dao.VacinasDao"%>
-<%@page import="java.util.List"%>
-<%@page import="projetovacina.dao.Dao"%>
 <%@page import="projetovacina.models.Vacinas"%>
+<%@page import="projetovacina.dao.VacinasDao"%>
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -67,9 +68,9 @@
   <tbody>
 	 <tr>
       <td>Gripe A</td>
-      <td>1</td>
+      <td>2</td>
       <td>Atenuada</td>
-      <td>6 meses</td>
+      <td>um ano</td>
       <td><button type="button" class="btn btn-success">Editar</button></td>
       <td><button type="button" class="btn btn-danger">Excluir</button></td>
     </tr>
