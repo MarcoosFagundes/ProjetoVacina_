@@ -40,7 +40,7 @@
         <a style="color: white; font-size: 22px; margin-right: 50px" class="nav-link active" href="formMenuPrincipal.jsp">Inicio</a>
         <a style="color: white; font-size: 22px; margin-right: 50px" class="nav-link active" href="formCadastroVacinas.jsp">Registrar Vacina</a>
         <a style="color: white; font-size: 22px; margin-right: 50px" class="nav-link active" href="formCadastroFornecedor.jsp">Registrar Fornecedor</a>
-        <a style="color: white; font-size: 22px; margin-right: 50px" class="nav-link active" href="formCadastroFornecedor.jsp">Lista de Fornecedores</a>
+        <a style="color: white; font-size: 22px; margin-right: 50px" class="nav-link active" href="formMenuFornecedor.jsp">Lista de Fornecedores</a>
       </div>
       <div class="div">
       	<a style="color: white; font-size: 22px;" class="nav-link active" href="formCadastroFornecedor.jsp">Logout</a>

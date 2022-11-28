@@ -44,6 +44,7 @@
               
                <div class="form-outline form-white mb-4">
                 <select type="text" class="form-control form-control-lg" name="endereco_estado">
+                	<option value="">Selecione um Estado</option>
                 	<option value="AC">Acre</option>
 			       	<option value="AL">Alagoas</option>
 			       	<option value="AP">Amapá</option>

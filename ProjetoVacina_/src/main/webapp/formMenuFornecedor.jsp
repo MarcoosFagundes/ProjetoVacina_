@@ -1,7 +1,10 @@
 <%@page import="projetovacina.dao.VacinasDao"%>
 <%@page import="java.util.List"%>
 <%@page import="projetovacina.dao.Dao"%>
+<%@page import="projetovacina.dao.FornecedorDao"%>
+<%@page import="projetovacina.models.Fornecedor"%>
 <%@page import="projetovacina.models.Vacinas"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -42,7 +45,7 @@
         <a style="color: white; font-size: 22px; margin-right: 50px" class="nav-link active" href="formMenuFornecedor.jsp">Lista de Fornecedores</a>
       </div>
       <div class="div">
-      	<a style="color: white; font-size: 22px;" class="nav-link active" href="formCadastroFornecedor.jsp">Logout</a>
+      	<a style="color: white; font-size: 22px;" class="nav-link active" href="formLoginUsuario.jsp">Logout</a>
       </div>
     </div>
   </div>
@@ -54,6 +57,10 @@
     border-radius: 5px;">Pesquisar</button>
 		</form>
 	</div>
+<%
+	FornecedorDao dao = new FornecedorDao();
+	List<Fornecedor> fornecedores = dao.findAll(Fornecedor.class);
+%>
 <div style="margin-top: 45px;">
 <table class="table table-hover">
   <thead class="table-dark">
@@ -64,10 +71,17 @@
   </thead>
   <tbody>
 	 <tr>
-      <td>Alberto</td>
-      <td>Gripe A</td>
-      <td><button type="button" class="btn btn-success">Editar</button></td>
-      <td><button type="button" class="btn btn-danger">Excluir</button></td>
+	 <%
+	 	for(Fornecedor f: fornecedores){
+	 %>
+      <td><%=f.getNome()%></td>
+      <td><%=f.getCnpj()%></td>
+      
+      <td><a type="button" href="formCadastroFornecedor.jsp?id=<%=f.getId() %>" class="btn btn-success">Editar</a></td>
+      <td><a type="button" href="<%=request.getContextPath()%>/controllerFornecedor?id=<%=f.getId() %>" class="btn btn-danger">Excluir</a></td>
+    <%
+	 	}
+    %>
     </tr>
   </tbody>
 </table>
