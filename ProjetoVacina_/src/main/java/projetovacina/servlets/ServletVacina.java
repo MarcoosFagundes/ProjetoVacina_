@@ -49,10 +49,11 @@ public class ServletVacina extends HttpServlet {
 			novaVacina.setDescricao(request.getParameter("descricao"));
 			novoFornecedor.setId(Long.parseLong(request.getParameter("idFornecedor")));
 			daof.setFornecedor(novoFornecedor);
-			daof.setVacinas(novaVacina);
 			
-			fDao.save(daof);
 			dao.save(novaVacina);
+			novaVacina.setId(novaVacina.getId());
+			daof.setVacinas(novaVacina);
+			fDao.save(daof);
 		
 		}else {
 			long vacinasid = Long.parseLong(request.getParameter("vacinasid"));
@@ -70,5 +71,4 @@ public class ServletVacina extends HttpServlet {
 		}
 		response.sendRedirect("formMenuPrincipal.jsp");
 	}
-
 }

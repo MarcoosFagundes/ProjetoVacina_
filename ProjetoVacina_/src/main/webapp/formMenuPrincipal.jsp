@@ -29,6 +29,10 @@
 	crossorigin="anonymous">
 </head>
 <body>
+<%
+	VacinasDao dao = new VacinasDao();
+	List<Vacinas> vacinas = dao.findAll(Vacinas.class);
+%>
 <nav style="background: linear-gradient(to right, rgba(106, 17, 203, 1),
 		rgba(37, 117, 252, 1))" class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
@@ -60,19 +64,28 @@
   <thead class="table-dark">
 	<tr>
       <th scope="col">Nome Vacina</th>
-      <th scope="col">Numero de Doses</th>
       <th scope="col">Tipo Vacina</th>
+      <th scope="col">Numero de Doses</th>
       <th scope="col">Periodo Vencimento</th>
+      <th scope="col">Tipo Vacina</th>
+      <th scope="col">Descrição</th>
     </tr>
   </thead>
   <tbody>
 	 <tr>
-      <td>Gripe A</td>
-      <td>2</td>
-      <td>Atenuada</td>
-      <td>um ano</td>
+	 <%
+	 	for(Vacinas v:vacinas){
+	 %>
+      <td><%=v.getNome()%></td>
+      <td><%=v.getTipo() %></td>
+      <td><%=v.getQnt_dose()%></td>
+      <td><%=v.getPeridoVencimento() %></td>
+      <td><%=v.getDescricao() %></td>
       <td><a type="button" class="btn btn-success" href="formUpdateVacina.jsp">Editar</a></td>
-      <td><button type="button" class="btn btn-danger">Excluir</button></td>
+       <td><a type="button" href="<%=request.getContextPath()%>/controllerFornecedor?id=<%=v.getId() %>" class="btn btn-danger">Excluir</a></td>
+      <%
+      	}
+      %>
     </tr>
   </tbody>
 </table>
