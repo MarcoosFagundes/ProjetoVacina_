@@ -77,7 +77,7 @@
       <td><%=f.getNome()%></td>
       <td><%=f.getCnpj()%></td>
       
-      <td><a type="button" href="formCadastroFornecedor.jsp?id=<%=f.getId() %>" class="btn btn-success">Editar</a></td>
+      <td><a type="button" href="formUpdateFornecedor.jsp?id=<%=f.getId() %>" class="btn btn-success">Editar</a></td>
       <td><a type="button" href="<%=request.getContextPath()%>/controllerFornecedor?id=<%=f.getId() %>" class="btn btn-danger">Excluir</a></td>
     <%
 	 	}
