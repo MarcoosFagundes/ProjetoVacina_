@@ -72,7 +72,7 @@
   <tbody>
 	 <tr>
 	 <%
-	 	for(Fornecedor f: fornecedores){
+	 	for(Fornecedor f:fornecedores){
 	 %>
       <td><%=f.getNome()%></td>
       <td><%=f.getCnpj()%></td>

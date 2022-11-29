@@ -30,7 +30,7 @@ public class Dao<T, ID> {
 	}
 	
 	public List<T> findAll(Class<T> clazz){
-		return em.createQuery("from" + clazz.getName()).getResultList();
+		return em.createQuery("from " + clazz.getName()).getResultList();
 	}
 	
 	private void executeInsideTransaction(Consumer<EntityManager> action) {
