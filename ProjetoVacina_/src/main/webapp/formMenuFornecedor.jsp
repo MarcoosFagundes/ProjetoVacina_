@@ -50,18 +50,11 @@
     </div>
   </div>
 </nav>
-	<div style="display" class="div">
-		<form class="form" action="controllerFornecedor" method="post">
-			<input type="text" placeholder="Pesquisar Fornecedor" name="nome"/>
-			<button style="margin-left: 15px;
-    border-radius: 5px;">Pesquisar</button>
-		</form>
-	</div>
 <%
 	FornecedorDao dao = new FornecedorDao();
 	List<Fornecedor> fornecedores = dao.findAll(Fornecedor.class);
 %>
-<div style="margin-top: 45px;">
+<div style="margin-top: 110px; margin-left: 25px; margin-right: 45px;">
 <table class="table table-hover">
   <thead class="table-dark">
 	<tr>

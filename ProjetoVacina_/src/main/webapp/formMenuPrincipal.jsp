@@ -52,14 +52,8 @@
     </div>
   </div>
 </nav>
-	<div style="display" class="div">
-		<form class="form" action="controllerVacina" method="post">
-			<input type="text" placeholder="Pesquisar Vacina" name="nome"/>
-			<button style="margin-left: 15px;
-    border-radius: 5px;">Pesquisar</button>
-		</form>
-	</div>
-<div style="margin-top: 45px;">
+
+<div style="margin-top: 110px; margin-left: 25px; margin-right: 45px;">
 <table class="table table-hover">
   <thead class="table-dark">
 	<tr>
@@ -67,26 +61,23 @@
       <th scope="col">Tipo Vacina</th>
       <th scope="col">Numero de Doses</th>
       <th scope="col">Periodo Vencimento</th>
-      <th scope="col">Tipo Vacina</th>
-      <th scope="col">Descrição</th>
     </tr>
   </thead>
   <tbody>
-	 <tr>
 	 <%
 	 	for(Vacinas v:vacinas){
 	 %>
+	 <tr>
       <td><%=v.getNome()%></td>
       <td><%=v.getTipo() %></td>
       <td><%=v.getQnt_dose()%></td>
       <td><%=v.getPeridoVencimento() %></td>
-      <td><%=v.getDescricao() %></td>
       <td><a type="button" class="btn btn-success" href="formUpdateVacina.jsp">Editar</a></td>
-       <td><a type="button" href="<%=request.getContextPath()%>/controllerFornecedor?id=<%=v.getId() %>" class="btn btn-danger">Excluir</a></td>
+      <td><a type="button" href="<%=request.getContextPath()%>/controllerFornecedor?id=<%=v.getId() %>" class="btn btn-danger">Excluir</a></td>
+     </tr>
       <%
       	}
       %>
-    </tr>
   </tbody>
 </table>
 </div>
