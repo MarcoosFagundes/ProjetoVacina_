@@ -71,7 +71,7 @@
       <td>2</td>
       <td>Atenuada</td>
       <td>um ano</td>
-      <td><button type="button" class="btn btn-success">Editar</button></td>
+      <td><a type="button" class="btn btn-success" href="formUpdateVacina.jsp">Editar</a></td>
       <td><button type="button" class="btn btn-danger">Excluir</button></td>
     </tr>
   </tbody>
