@@ -57,9 +57,17 @@
 										placeholder="Periodo Vencimento. Ex; um ano." name="vencimento" />
 								</div>
 								
+								
 								<div class="form-outline form-white mb-4">
 									<input type="text" class="form-control form-control-lg" 
 										placeholder="Descrição" rows="3" name="descricao" />
+								</div>
+								
+								<div class="form-outline form-white mb-4">
+								<label class="form-label">Nome do Fornecedor</label>
+									<select class="form-control form-control-lg" type="text" name="tipo">
+										<option value="Atenuadas">Atenuadas</option>
+									</select>
 								</div>
 
 								<input class="btn btn-outline-light btn-lg px-5" type="submit"

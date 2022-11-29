@@ -66,7 +66,9 @@
   <thead class="table-dark">
 	<tr>
       <th scope="col">Nome Fornecedor</th>
-      <th scope="col">Nome Vacina</th>
+      <th scope="col">CNPJ</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Cidade</th>
     </tr>
   </thead>
   <tbody>
