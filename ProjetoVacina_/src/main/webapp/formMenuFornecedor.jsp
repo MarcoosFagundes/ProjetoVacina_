@@ -67,8 +67,8 @@
 	<tr>
       <th scope="col">Nome Fornecedor</th>
       <th scope="col">CNPJ</th>
-      <th scope="col">Estado</th>
       <th scope="col">Cidade</th>
+      <th scope="col">Estado</th>
     </tr>
   </thead>
   <tbody>
@@ -78,7 +78,8 @@
 	 <tr>
       <td><%=f.getNome()%></td>
       <td><%=f.getCnpj()%></td>
-      <td><%=f.getEndereco().getCidade()%></td>     
+      <td><%=f.getEndereco().getCidade()%></td> 
+      <td><%=f.getEndereco().getEstado().name()%></td> 
       <td><a type="button" href="formUpdateFornecedor.jsp?id=<%=f.getId() %>" class="btn btn-success">Editar</a></td>
       <td><a type="button" href="<%=request.getContextPath()%>/controllerFornecedor?id=<%=f.getId() %>" class="btn btn-danger">Excluir</a></td>
       </tr>
