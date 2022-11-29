@@ -1,3 +1,6 @@
+<%@page import="projetovacina.dao.FornecedorDao"%>
+<%@page import="projetovacina.models.Fornecedor"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -22,6 +25,10 @@
 	crossorigin="anonymous">
 </head>
 <body>
+<%
+	FornecedorDao dao = new FornecedorDao();
+	List<Fornecedor> fornecedores = dao.findAll(Fornecedor.class);
+%>
 	<form class="vh-100 gradient-custom" action="controllerVacina"
 		method="post">
 		<div class="container py-5 h-100">
@@ -47,6 +54,7 @@
 
 								<div class="form-outline form-white mb-4">
 									<select class="form-control form-control-lg" type="text" placeholder="Tipo Vacina" name="tipo">
+										<option value="">Selecione um tipo</option>
 										<option value="Atenuadas">Atenuadas</option>
 										<option value="Inativas">Inativas</option>
 									</select>
@@ -64,9 +72,15 @@
 								</div>
 								
 								<div class="form-outline form-white mb-4">
-								<label class="form-label">Nome do Fornecedor</label>
-									<select class="form-control form-control-lg" type="text" name="tipo">
-										<option value="Atenuadas">Atenuadas</option>
+									<select class="form-control form-control-lg" type="text" name="idFornecedor">
+									<option value="">Selecione um fornecedor</option>
+									<%
+									 	for(Fornecedor f:fornecedores){
+									 %>
+										<option value=<%=f.getId() %>><%=f.getNome()%></option>
+										<%
+									 	}
+									 %>
 									</select>
 								</div>
 
@@ -77,7 +91,7 @@
 							<div>
 								<p class="mb-0">
 									<a href="formMenuPrincipal.jsp" class="text-white-50 fw-bold">Voltar
-										para Manu</a>
+										para Menu</a>
 								</p>
 							</div>
 						</div>
