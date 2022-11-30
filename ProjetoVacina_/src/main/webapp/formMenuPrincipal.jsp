@@ -73,7 +73,7 @@
       <td><%=v.getQnt_dose()%></td>
       <td><%=v.getPeridoVencimento() %></td>
       <td><a type="button" class="btn btn-success" href="formUpdateVacina.jsp">Editar</a></td>
-      <td><a type="button" href="<%=request.getContextPath()%>/controllerFornecedor?id=<%=v.getId() %>" class="btn btn-danger">Excluir</a></td>
+      <td><a type="button" href="<%=request.getContextPath()%>/controllerVacina?vacinasid=<%=v.getId() %>" class="btn btn-danger">Excluir</a></td>
      </tr>
       <%
       	}
