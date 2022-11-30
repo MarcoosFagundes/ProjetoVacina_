@@ -17,36 +17,37 @@ import projetovacina.tipoenum.TipoVacinaEnum;
 @WebServlet({ "/ServletVacina", "/controllerVacina" })
 public class ServletVacina extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public ServletVacina() {
-        super();
-    }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public ServletVacina() {
+		super();
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		VacinasDao dao = new VacinasDao();
 		FornecedorVacinaDao fDao = new FornecedorVacinaDao();
-		
+
 		long vacinasid = Long.parseLong(request.getParameter("vacinasid"));
 		Vacinas delvacinas = dao.findById(Vacinas.class, vacinasid).get();
-		
+
 		FornecedorVacina delF = fDao.GetFornecedorVacina(vacinasid);
-		
+
 		fDao.delete(delF);
 		dao.delete(delvacinas);
 		response.sendRedirect("formMenuPrincipal.jsp");
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		VacinasDao dao = new VacinasDao();
 		FornecedorVacinaDao fDao = new FornecedorVacinaDao();
-		
-		if(request.getParameter("vacinasid")==null)
-		{
+
+		if (request.getParameter("vacinasid") == null) {
 			Vacinas novaVacina = new Vacinas();
 			FornecedorVacina daof = new FornecedorVacina();
 			Fornecedor novoFornecedor = new Fornecedor();
-			
+
 			novaVacina.setNome(request.getParameter("nome"));
 			novaVacina.setQnt_dose(Integer.parseInt(request.getParameter("qtd_doses")));
 			novaVacina.setTipo(TipoVacinaEnum.valueOf(request.getParameter("tipo")));
@@ -54,25 +55,30 @@ public class ServletVacina extends HttpServlet {
 			novaVacina.setDescricao(request.getParameter("descricao"));
 			novoFornecedor.setId(Long.parseLong(request.getParameter("idFornecedor")));
 			daof.setFornecedor(novoFornecedor);
-			
+
 			dao.save(novaVacina);
 			novaVacina.setId(novaVacina.getId());
 			daof.setVacinas(novaVacina);
 			fDao.save(daof);
-		
-		}else {
+
+		} else {
 			long vacinasid = Long.parseLong(request.getParameter("vacinasid"));
 			Vacinas vacinas = dao.findById(Vacinas.class, vacinasid).get();
-			
+			FornecedorVacina daof = new FornecedorVacina();
+			Fornecedor fornecedor = new Fornecedor();
+
 			vacinas.setNome(request.getParameter("nome"));
 			vacinas.setQnt_dose(Integer.parseInt(request.getParameter("qtd_doses")));
 			vacinas.setTipo(TipoVacinaEnum.valueOf(request.getParameter("tipo")));
 			vacinas.setPeridoVencimento(request.getParameter("vencimento"));
 			vacinas.setDescricao(request.getParameter("descricao"));
-			
-			fDao.update(null);
+			fornecedor.setId(Long.parseLong(request.getParameter("idFornecedor")));
+			daof.setFornecedor(fornecedor);
+
 			dao.update(vacinas);
-			
+			vacinas.setId(vacinas.getId());
+			daof.setVacinas(vacinas);
+			fDao.update(daof);
 		}
 		response.sendRedirect("formMenuPrincipal.jsp");
 	}

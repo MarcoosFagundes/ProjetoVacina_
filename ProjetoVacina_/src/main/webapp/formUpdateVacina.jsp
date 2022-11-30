@@ -1,5 +1,10 @@
+<%@page import="projetovacina.dao.VacinasDao"%>
+<%@page import="projetovacina.models.Vacinas"%>
+<%@page import="java.util.List"%>
+<%@page import="projetovacina.dao.FornecedorDao"%>
+<%@page import="projetovacina.models.Fornecedor"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,6 +26,14 @@
 	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 	crossorigin="anonymous">
 </head>
+<%
+FornecedorDao daof = new FornecedorDao();
+List<Fornecedor> fornecedores = daof.findAll(Fornecedor.class);
+
+Long vacinaid = Long.parseLong("id");
+VacinasDao daov = new VacinasDao();
+Vacinas vacina = daov.findById(Vacinas.class, vacinaid).get();
+%>
 <body>
 	<form class="vh-100 gradient-custom" action="controllerVacina"
 		method="post">
@@ -34,38 +47,51 @@
 							<div class="mb-md-5 mt-md-4 pb-5">
 
 								<h2 class="fw-bold mb-2 text-uppercase">Alterar Vacina</h2>
+								
+								<div class="form-outline form-white mb-4">
+									<input type="hidden" name="vacinasid" value="<%=vacina.getId() %>"/>
+								</div>
 
 								<div class="form-outline form-white mb-4">
 									<input type="text" class="form-control form-control-lg"
-										placeholder="Nome da Vacina" name="nome" />
+										placeholder="Nome da Vacina" name="nome" value="<%=vacina.getNome() %>"/>
 								</div>
 
 								<div class="form-outline form-white mb-4">
 									<input type="number" class="form-control form-control-lg"
-										placeholder="Numero de Doses. Ex.; 1, 2, 3" name="qtd_doses" />
+										placeholder="Numero de Doses. Ex.; 1, 2, 3" name="qtd_doses" value="<%=vacina.getQnt_dose() %>"/>
 								</div>
 
 								<div class="form-outline form-white mb-4">
-									<select class="form-control form-control-lg" type="text" placeholder="Tipo Vacina" name="tipo">
+									<select class="form-control form-control-lg" type="text"
+										placeholder="Tipo Vacina" name="tipo">
 										<option value="Atenuadas">Atenuadas</option>
 										<option value="Inativas">Inativas</option>
 									</select>
 								</div>
-								
+
 								<div class="form-outline form-white mb-4">
 									<input type="text" class="form-control form-control-lg"
-										placeholder="Periodo Vencimento. Ex; um ano." name="vencimento" />
+										placeholder="Periodo Vencimento. Ex; um ano."
+										name="vencimento" value="<%=vacina.getPeridoVencimento() %>"/>
 								</div>
-								
+
 								<div class="form-outline form-white mb-4">
-									<input type="text" class="form-control form-control-lg" 
-										placeholder="Descrição" rows="3" name="descricao" />
+									<input type="text" class="form-control form-control-lg"
+										placeholder="Descrição" rows="3" name="descricao" value="<%=vacina.getDescricao() %>"/>
 								</div>
-								
+
 								<div class="form-outline form-white mb-4">
-								<label class="form-label">Nome do Fornecedor</label>
-									<select class="form-control form-control-lg" type="text" name="tipo">
-										<option value="Atenuadas">Atenuadas</option>
+									<label class="form-label">Nome do Fornecedor</label> 
+									<select class="form-control form-control-lg" type="text" name="idFornecedor">
+										<option value="">Selecione um fornecedor</option>
+									<%
+									 	for(Fornecedor f:fornecedores){
+									 %>
+										<option value=<%=f.getId() %>><%=f.getNome()%></option>
+										<%
+									 	}
+									 %>
 									</select>
 								</div>
 
@@ -76,7 +102,7 @@
 							<div>
 								<p class="mb-0">
 									<a href="formMenuPrincipal.jsp" class="text-white-50 fw-bold">Voltar
-										para Manu</a>
+										para Menu</a>
 								</p>
 							</div>
 						</div>
