@@ -29,6 +29,8 @@ public class Vacinas {
 	private String peridoVencimento;
 	
 	private String descricao;
+	
+	private boolean inativo;
 
 	public long getId() {
 		return id;
@@ -77,5 +79,14 @@ public class Vacinas {
 	public void setPeridoVencimento(String peridoVencimento) {
 		this.peridoVencimento = peridoVencimento;
 	}
-		
+
+	public boolean isInativo() {
+		return inativo;
+	}
+
+	public void setInativo(boolean inativo) {
+		this.inativo = inativo;
+	}
+
+	
 }

@@ -30,6 +30,8 @@ public class Fornecedor {
 	
 	@Column(unique = true)
 	private String cnpj;
+	
+	private boolean inativo;
 
 	public long getId() {
 		return id;
@@ -62,7 +64,13 @@ public class Fornecedor {
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
-	
-	
+
+	public boolean isInativo() {
+		return inativo;
+	}
+
+	public void setInativo(boolean inativo) {
+		this.inativo = inativo;
+	}
 	
 }
