@@ -42,6 +42,10 @@
 			<h2>Alterar Fornecedor</h2>
 				
 			<div class="form-outline form-white mb-4">
+                <input type="hidden" name="fornecedorid" value="<%=fornecedor.getId() %>"/>
+              </div>
+              
+			<div class="form-outline form-white mb-4">
                 <input type="text" class="form-control form-control-lg" placeholder="Nome Fornecedor" name="nome" value="<%=fornecedor.getNome() %>"/>
               </div>
               
