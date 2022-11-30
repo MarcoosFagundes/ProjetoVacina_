@@ -74,7 +74,7 @@
       <td><%=f.getEndereco().getCidade()%></td> 
       <td><%=f.getEndereco().getEstado().name()%></td> 
       <td><a type="button" href="formUpdateFornecedor.jsp?id=<%=f.getId() %>" class="btn btn-success">Editar</a></td>
-      <td><a type="button" href="<%=request.getContextPath()%>/controllerFornecedor?id=<%=f.getId() %>" class="btn btn-danger">Excluir</a></td>
+      <td><a type="button" href="<%=request.getContextPath()%>/controllerFornecedor?fornecedorid=<%=f.getId() %>" class="btn btn-danger">Excluir</a></td>
       </tr>
     <%
 	 	}

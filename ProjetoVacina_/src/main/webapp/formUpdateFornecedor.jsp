@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@page import="projetovacina.dao.FornecedorDao" %>
+<%@page import="projetovacina.models.Fornecedor" %>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,6 +24,11 @@
 	crossorigin="anonymous">
 	
 </head>
+<%
+	Long fonecedorid = Long.parseLong(request.getParameter("id"));
+	FornecedorDao dao = new FornecedorDao();
+	Fornecedor fornecedor = dao.findById(Fornecedor.class, fonecedorid).get();
+%>
 <body>
 <form class="vh-100 gradient-custom" action="controllerFornecedor" method="post">
   <div class="container py-5 h-100">
@@ -35,32 +42,32 @@
 			<h2>Alterar Fornecedor</h2>
 				
 			<div class="form-outline form-white mb-4">
-                <input type="text" class="form-control form-control-lg" placeholder="Nome Fornecedor" name="nome" />
+                <input type="text" class="form-control form-control-lg" placeholder="Nome Fornecedor" name="nome" value="<%=fornecedor.getNome() %>"/>
               </div>
               
               <div class="form-outline form-white mb-4">
-                <input type="number" class="form-control form-control-lg" placeholder="CNPJ" name="cnpj" />
+                <input type="number" class="form-control form-control-lg" placeholder="CNPJ" name="cnpj" value="<%=fornecedor.getCnpj() %>"/>
               </div>
               
                <div class="form-outline form-white mb-4">
                 <select type="text" class="form-control form-control-lg" name="endereco_estado">
-                	<option value="">Selecione um Estado</option>
+                	<option value="none">Selecione um Estado</option>
                 	<option value="AC">Acre</option>
 			       	<option value="AL">Alagoas</option>
-			       	<option value="AP">Amapá</option>
+			       	<option value="AP">Amapa</option>
 			       	<option value="AM">Amazonas</option>
 			       	<option value="BA">Bahia</option>
-			       	<option value="CE">Ceará</option>
+			       	<option value="CE">Ceara</option>
 			       	<option value="DF">Distrito Federal</option>
-			       	<option value="ES">Espírito Santo</option>
+			       	<option value="ES">Espirito Santo</option>
 			       	<option value="GO">Goias</option>
-			       	<option value="MA">Maranhão</option>
+			       	<option value="MA">Maranhao</option>
 			       	<option value="MT">Mato Grosso</option>
 			       	<option value="MS">Mato Grosso do Sul</option>
 			       	<option value="MG">Minas Gerais</option>
-			       	<option value="PA">Pará</option>
-			       	<option value="PB">Paraíba</option>
-			       	<option value="PR">Paraná</option>
+			       	<option value="PA">Para</option>
+			       	<option value="PB">Paraiba</option>
+			       	<option value="PR">Parana</option>
 			       	<option value="PE">Pernambuco</option>
 			       	<option value="PI">Piaui</option>
 			       	<option value="RJ">Rio de Janeiro</option>
@@ -69,26 +76,26 @@
 			       	<option value="RO">Rondonia</option>
 			       	<option value="RR">Roraima</option>
 			       	<option value="SC">Santa Catarina</option>
-			       	<option value="SP">São Paulo</option>
+			       	<option value="SP">Sao Paulo</option>
 			       	<option value="SE">Sergipe</option>
 			       	<option value="TO">Tocantins</option>
                 </select>
               </div>
               
               <div class="form-outline form-white mb-4">
-                <input type="text" class="form-control form-control-lg" placeholder="Cidade" name="endereco_cidade"/>
+                <input type="text" class="form-control form-control-lg" placeholder="Cidade" name="endereco_cidade" value="<%=fornecedor.getEndereco().getCidade() %>"/>
               </div>
 
               <div class="form-outline form-white mb-4">
-                <input type="text" class="form-control form-control-lg" placeholder="Bairro" name="endereco_bairro"/>
+                <input type="text" class="form-control form-control-lg" placeholder="Bairro" name="endereco_bairro" value="<%=fornecedor.getEndereco().getBairro() %>"/>
               </div>
               
               <div class="form-outline form-white mb-4">
-                <input type="text" class="form-control form-control-lg" placeholder="Rua" name="endereco_rua"/>
+                <input type="text" class="form-control form-control-lg" placeholder="Rua" name="endereco_rua" value="<%=fornecedor.getEndereco().getRua() %>"/>
               </div>
               
               <div class="form-outline form-white mb-4">
-                <input type="text" class="form-control form-control-lg" placeholder="Numero" name="endereco_numero"/>
+                <input type="text" class="form-control form-control-lg" placeholder="Numero" name="endereco_numero" value="<%=fornecedor.getEndereco().getNumero() %>"/>
               </div>
 
               <input class="btn btn-outline-light btn-lg px-5" type="submit" value="Registrar"/>

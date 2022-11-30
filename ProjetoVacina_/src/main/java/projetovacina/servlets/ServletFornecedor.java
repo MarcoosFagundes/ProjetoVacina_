@@ -59,9 +59,9 @@ public class ServletFornecedor extends HttpServlet {
 			
 			fornecedor.setNome(request.getParameter("nome"));
 			fornecedor.setCnpj(request.getParameter("cnpj"));
-			endereco.setRua(request.getParameter("rua"));
-			endereco.setNumero(request.getParameter("numero"));
-			endereco.setBairro(request.getParameter("bairro"));
+			endereco.setRua(request.getParameter("endereco_rua"));
+			endereco.setNumero(request.getParameter("endereco_numero"));
+			endereco.setBairro(request.getParameter("endereco_bairro"));
 			endereco.setCidade(request.getParameter("endereco_cidade"));
 			endereco.setEstado(TipoEstadosEnum.valueOf(request.getParameter("endereco_estado")));
 			fornecedor.setEndereco(endereco);
