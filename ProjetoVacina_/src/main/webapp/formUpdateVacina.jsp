@@ -3,8 +3,8 @@
 <%@page import="java.util.List"%>
 <%@page import="projetovacina.dao.FornecedorDao"%>
 <%@page import="projetovacina.models.Fornecedor"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -78,7 +78,7 @@ Vacinas vacina = daov.findById(Vacinas.class, vacinaid).get();
 
 								<div class="form-outline form-white mb-4">
 									<input type="text" class="form-control form-control-lg"
-										placeholder="DescriÁ„o" rows="3" name="descricao" value="<%=vacina.getDescricao() %>"/>
+										placeholder="Descri√ß√£o" rows="3" name="descricao" value="<%=vacina.getDescricao() %>"/>
 								</div>
 
 								<div class="form-outline form-white mb-4">
