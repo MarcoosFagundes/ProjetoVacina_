@@ -80,6 +80,7 @@ public class ServletVacina extends HttpServlet {
 
 		} else {
 			long vacinasid = Long.parseLong(request.getParameter("vacinasid"));
+			long idfv = Long.parseLong(request.getParameter("idfv"));
 			Vacinas vacinas = dao.findById(Vacinas.class, vacinasid).get();
 			FornecedorVacina daof = new FornecedorVacina();
 			Fornecedor fornecedor = new Fornecedor();
@@ -90,6 +91,7 @@ public class ServletVacina extends HttpServlet {
 			vacinas.setPeridoVencimento(request.getParameter("vencimento"));
 			vacinas.setDescricao(request.getParameter("descricao"));
 			fornecedor.setId(Long.parseLong(request.getParameter("idFornecedor")));
+			daof.setId(idfv);
 			daof.setFornecedor(fornecedor);
 
 			dao.update(vacinas);

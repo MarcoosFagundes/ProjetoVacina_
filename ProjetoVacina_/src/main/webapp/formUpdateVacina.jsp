@@ -31,6 +31,7 @@
 <%
 	String nome = "";
 	Long id = null;
+	Long idfv = null;
 
 	FornecedorDao daof = new FornecedorDao();
 	List<Fornecedor> fornecedores = daof.findAll(Fornecedor.class);
@@ -46,6 +47,7 @@
 		if(forn.getId() == fv.getFornecedor().getId()){
 			nome = forn.getNome();
 			id = forn.getId();
+			idfv = fv.getId();
 		}
 	}
 %>
@@ -62,6 +64,10 @@
 							<div class="mb-md-5 mt-md-4 pb-5">
 
 								<h2 class="fw-bold mb-2 text-uppercase">Alterar Vacina</h2>
+								
+								<div class="form-outline form-white mb-4">
+									<input type="hidden" name="idfv" value="<%=idfv %>"/>
+								</div>
 								
 								<div class="form-outline form-white mb-4">
 									<input type="hidden" name="vacinasid" value="<%=vacina.getId() %>"/>
