@@ -27,12 +27,12 @@
 	crossorigin="anonymous">
 </head>
 <%
-FornecedorDao daof = new FornecedorDao();
-List<Fornecedor> fornecedores = daof.findAll(Fornecedor.class);
+	FornecedorDao daof = new FornecedorDao();
+	List<Fornecedor> fornecedores = daof.findAll(Fornecedor.class);
 
-Long vacinaid = Long.parseLong("id");
-VacinasDao daov = new VacinasDao();
-Vacinas vacina = daov.findById(Vacinas.class, vacinaid).get();
+	Long vacinaid = Long.parseLong("id");
+	VacinasDao daov = new VacinasDao();
+	Vacinas vacina = daov.findById(Vacinas.class, vacinaid).get();
 %>
 <body>
 	<form class="vh-100 gradient-custom" action="controllerVacina"
