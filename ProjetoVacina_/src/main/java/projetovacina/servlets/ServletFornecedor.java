@@ -25,9 +25,8 @@ public class ServletFornecedor extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		FornecedorDao dao = new FornecedorDao();
 		long fornecedorid = Long.parseLong(request.getParameter("fornecedorid"));
-		Fornecedor delfornecedor = dao.findById(Fornecedor.class, fornecedorid).get();
-		
-		dao.delete(delfornecedor);
+		dao.Inativar(fornecedorid);
+
 		response.sendRedirect("formMenuPrincipal.jsp");
 	}
 

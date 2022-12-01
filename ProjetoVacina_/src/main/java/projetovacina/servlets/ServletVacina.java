@@ -25,15 +25,9 @@ public class ServletVacina extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		VacinasDao dao = new VacinasDao();
-		FornecedorVacinaDao fDao = new FornecedorVacinaDao();
-
 		long vacinasid = Long.parseLong(request.getParameter("vacinasid"));
-		Vacinas delvacinas = dao.findById(Vacinas.class, vacinasid).get();
-
-		FornecedorVacina delF = fDao.GetFornecedorVacina(vacinasid);
-
-		fDao.delete(delF);
-		dao.delete(delvacinas);
+		dao.Inativar(vacinasid);
+		
 		response.sendRedirect("formMenuPrincipal.jsp");
 	}
 
