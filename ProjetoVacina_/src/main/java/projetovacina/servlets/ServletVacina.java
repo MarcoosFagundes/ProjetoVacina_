@@ -32,9 +32,16 @@ public class ServletVacina extends HttpServlet {
 		
 		Vacinas vacina = dao.findById(Vacinas.class, idVacina).get();
 		if(vacina != null) {
-			vacina.setInativo(true);
-			dao.update(vacina);
-			response.sendRedirect("formMenuPrincipal.jsp");
+			if(vacina.isInativo()) {
+				vacina.setInativo(false);
+				dao.update(vacina);
+				response.sendRedirect("formMenuPrincipalinativos.jsp");
+			}
+			else{
+				vacina.setInativo(true);
+				dao.update(vacina);
+				response.sendRedirect("formMenuPrincipal.jsp");
+			}
 		}
 		else {
 			response.setContentType("text/html");

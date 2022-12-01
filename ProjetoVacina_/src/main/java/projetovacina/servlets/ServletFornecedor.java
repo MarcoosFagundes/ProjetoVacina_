@@ -25,16 +25,22 @@ public class ServletFornecedor extends HttpServlet {
         super();
     }
 
-	@SuppressWarnings("null")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		FornecedorDao dao = new FornecedorDao();
-		long fornecedorid = Long.parseLong(request.getParameter("id"));
+		long idFornecedor = Long.parseLong(request.getParameter("id"));
 		
-		Fornecedor f = dao.findById(Fornecedor.class, fornecedorid).get();
-		if(f == null) {
-			f.setInativo(true);
-			dao.update(f);
-			response.sendRedirect("formMenuFornecedor.jsp");
+		Fornecedor fornecedor = dao.findById(Fornecedor.class, idFornecedor).get();
+		if(fornecedor != null) {
+			if(fornecedor.isInativo()) {
+				fornecedor.setInativo(false);
+				dao.update(fornecedor);
+				response.sendRedirect("formMenuFornecedorinativos.jsp");
+			}
+			else {
+				fornecedor.setInativo(true);
+				dao.update(fornecedor);
+				response.sendRedirect("formMenuFornecedor.jsp");
+			}
 		}
 		else {
 			response.setContentType("text/html");

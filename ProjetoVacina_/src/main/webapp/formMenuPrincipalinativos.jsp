@@ -66,7 +66,7 @@
 		</div>
 	</nav>
 	<div>
-		<a type="button" class="btn btn-success" href="formMenuPrincipalinativos.jsp">Mostrar Inativos</a>
+		<a type="button" class="btn btn-success" href="formMenuPrincipal.jsp">Mostrar Ativos</a>
 	</div>
 
 	<div style="margin-top: 110px; margin-left: 25px; margin-right: 45px; margin-bottom: 275px;">
@@ -84,7 +84,7 @@
 			<tbody>
 				<%
 				for (Vacinas v : vacinas) {
-					if(!v.isInativo()){
+					if(v.isInativo()){
 				%>
 				<tr>
 					<td><%=v.getNome()%></td>
@@ -95,7 +95,7 @@
 						href="formUpdateVacina.jsp?id=<%=v.getId()%>">Editar</a></td>
 					<td><a type="button"
 						href="<%=request.getContextPath()%>/controllerVacina?vacinasid=<%=v.getId()%>"
-						class="btn btn-danger">Inativar</a></td>
+						class="btn btn-danger">Ativar</a></td>
 				</tr>
 				<%
 					}

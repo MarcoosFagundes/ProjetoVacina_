@@ -1,8 +1,10 @@
-<%@page import="projetovacina.models.Vacinas"%>
 <%@page import="projetovacina.dao.VacinasDao"%>
-<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
-<%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
+<%@page import="projetovacina.dao.Dao"%>
+<%@page import="projetovacina.dao.FornecedorDao"%>
+<%@page import="projetovacina.models.Fornecedor"%>
+<%@page import="projetovacina.models.Vacinas"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -10,7 +12,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Menu Inicial</title>
+<title>Lista de Fornecedores</title>
 <style type="text/css">
 .div form {
 	display: flex;
@@ -30,10 +32,6 @@
 	crossorigin="anonymous">
 </head>
 <body>
-	<%
-	VacinasDao dao = new VacinasDao();
-	List<Vacinas> vacinas = dao.findAll(Vacinas.class);
-	%>
 	<nav
 		style="background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))"
 		class="navbar navbar-expand-lg navbar-light bg-light">
@@ -60,42 +58,45 @@
 				</div>
 				<div class="div">
 					<a style="color: white; font-size: 22px;" class="nav-link active"
-						href="formCadastroFornecedor.jsp">Logout</a>
+						href="formLoginUsuario.jsp">Logout</a>
 				</div>
 			</div>
 		</div>
 	</nav>
+	
 	<div>
-		<a type="button" class="btn btn-success" href="formMenuPrincipalinativos.jsp">Mostrar Inativos</a>
+		<a type="button" class="btn btn-success" href="formMenuFornecedor.jsp">Mostrar Ativos</a>
 	</div>
-
+	<%
+	FornecedorDao dao = new FornecedorDao();
+	List<Fornecedor> fornecedores = dao.findAll(Fornecedor.class);
+	%>
 	<div style="margin-top: 110px; margin-left: 25px; margin-right: 45px; margin-bottom: 275px;">
 		<table class="table table-hover">
 			<thead class="table-dark">
 				<tr>
-					<th scope="col">Nome Vacina</th>
-					<th scope="col">Tipo Vacina</th>
-					<th scope="col">Numero de Doses</th>
-					<th scope="col">Periodo Vencimento</th>
-					<th scope="col"></th>
-					<th scope="col"></th>
+					<th scope="col">Nome Fornecedor</th>
+					<th scope="col">CNPJ</th>
+					<th scope="col">Cidade</th>
+					<th scope="col">Estado</th>
 				</tr>
 			</thead>
 			<tbody>
 				<%
-				for (Vacinas v : vacinas) {
-					if(!v.isInativo()){
+				for (Fornecedor f : fornecedores) {
+					if(f.isInativo()){
 				%>
 				<tr>
-					<td><%=v.getNome()%></td>
-					<td><%=v.getTipo()%></td>
-					<td><%=v.getQnt_dose()%></td>
-					<td><%=v.getPeridoVencimento()%></td>
-					<td><a type="button" class="btn btn-success"
-						href="formUpdateVacina.jsp?id=<%=v.getId()%>">Editar</a></td>
+					<td><%=f.getNome()%></td>
+					<td><%=f.getCnpj()%></td>
+					<td><%=f.getEndereco().getCidade()%></td>
+					<td><%=f.getEndereco().getEstado().name()%></td>
 					<td><a type="button"
-						href="<%=request.getContextPath()%>/controllerVacina?vacinasid=<%=v.getId()%>"
-						class="btn btn-danger">Inativar</a></td>
+						href="formUpdateFornecedor.jsp?id=<%=f.getId()%>"
+						class="btn btn-success">Editar</a></td>
+					<td><a type="button"
+						href="<%=request.getContextPath()%>/controllerFornecedor?id=<%=f.getId()%>"
+						class="btn btn-danger">Ativar</a></td>
 				</tr>
 				<%
 					}
@@ -105,7 +106,6 @@
 		</table>
 	</div>
 </body>
-
   <footer
           class="text-center text-lg-start text-white"
           style="background-color: #1c2331"

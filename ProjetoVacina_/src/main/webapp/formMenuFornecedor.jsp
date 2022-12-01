@@ -63,6 +63,9 @@
 			</div>
 		</div>
 	</nav>
+	<div>
+		<a type="button" class="btn btn-success" href="formMenuFornecedorinativos.jsp">Mostrar Inativos</a>
+	</div>
 	<%
 	FornecedorDao dao = new FornecedorDao();
 	List<Fornecedor> fornecedores = dao.findAll(Fornecedor.class);
@@ -80,6 +83,7 @@
 			<tbody>
 				<%
 				for (Fornecedor f : fornecedores) {
+					if(!f.isInativo()){
 				%>
 				<tr>
 					<td><%=f.getNome()%></td>
@@ -94,6 +98,7 @@
 						class="btn btn-danger">Inativar</a></td>
 				</tr>
 				<%
+					}
 				}
 				%>
 			</tbody>
