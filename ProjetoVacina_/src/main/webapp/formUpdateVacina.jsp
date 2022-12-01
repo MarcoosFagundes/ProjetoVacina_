@@ -113,7 +113,7 @@
 								</div>
 
 								<input class="btn btn-outline-light btn-lg px-5" type="submit"
-									value="Registrar" />
+									value="Alterar" />
 
 							</div>
 							<div>

@@ -91,7 +91,7 @@
 							<div>
 								<p class="mb-0">
 									<a href="formMenuPrincipal.jsp" class="text-white-50 fw-bold">Voltar
-										para Menu</a>
+										para Lista de Vacinas</a>
 								</p>
 							</div>
 						</div>

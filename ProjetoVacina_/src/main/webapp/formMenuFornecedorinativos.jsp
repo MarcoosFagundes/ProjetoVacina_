@@ -12,7 +12,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lista de Fornecedores</title>
+<title>Fornecedores Inativos</title>
 <style type="text/css">
 .div form {
 	display: flex;
@@ -45,15 +45,15 @@
 			<div class="collapse navbar-collapse justify-content-center">
 				<div class="navbar-nav">
 					<a style="color: white; font-size: 22px; margin-right: 50px"
-						class="nav-link active" href="formMenuPrincipal.jsp">Inicio</a> <a
+						class="nav-link active" href="formMenuPrincipal.jsp">Listar Vacinas</a> <a
 						style="color: white; font-size: 22px; margin-right: 50px"
 						class="nav-link active" href="formCadastroVacinas.jsp">Registrar
-						Vacina</a> <a
+						Vacinas</a> <a
+						style="color: white; font-size: 22px; margin-right: 50px"
+						class="nav-link active" href="formMenuFornecedor.jsp">Listar
+						Fornecedores</a> <a
 						style="color: white; font-size: 22px; margin-right: 50px"
 						class="nav-link active" href="formCadastroFornecedor.jsp">Registrar
-						Fornecedor</a> <a
-						style="color: white; font-size: 22px; margin-right: 50px"
-						class="nav-link active" href="formMenuFornecedor.jsp">Lista de
 						Fornecedores</a>
 				</div>
 				<div class="div">
@@ -64,14 +64,11 @@
 		</div>
 	</nav>
 	
-	<div>
-		<a type="button" class="btn btn-success" href="formMenuFornecedor.jsp">Mostrar Ativos</a>
-	</div>
 	<%
 	FornecedorDao dao = new FornecedorDao();
 	List<Fornecedor> fornecedores = dao.findAll(Fornecedor.class);
 	%>
-	<div style="margin-top: 110px; margin-left: 25px; margin-right: 45px; margin-bottom: 275px;">
+	<div style="margin-top: 110px; margin-left: 25px; margin-right: 45px;">
 		<table class="table table-hover">
 			<thead class="table-dark">
 				<tr>
@@ -79,6 +76,8 @@
 					<th scope="col">CNPJ</th>
 					<th scope="col">Cidade</th>
 					<th scope="col">Estado</th>
+					<th scope="col"></th>
+					<th scope="col"></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -104,6 +103,12 @@
 				%>
 			</tbody>
 		</table>
+	</div>
+	<div style="display: flex;
+    justify-content: center;">
+		<a style="margin-bottom: 275px; 
+		background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))" type="button"
+		 class="btn btn-success" href="formMenuFornecedor.jsp">Mostrar Fornecedores Ativos</a>
 	</div>
 </body>
   <footer

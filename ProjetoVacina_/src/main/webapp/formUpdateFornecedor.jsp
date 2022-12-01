@@ -102,7 +102,7 @@
                 <input type="text" class="form-control form-control-lg" placeholder="Numero" name="endereco_numero" value="<%=fornecedor.getEndereco().getNumero() %>"/>
               </div>
 
-              <input class="btn btn-outline-light btn-lg px-5" type="submit" value="Registrar"/>
+              <input class="btn btn-outline-light btn-lg px-5" type="submit" value="Alterar"/>
 
             </div>
 			<div>
