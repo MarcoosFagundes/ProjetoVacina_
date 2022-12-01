@@ -1,3 +1,5 @@
+<%@page import="projetovacina.models.FornecedorVacina"%>
+<%@page import="projetovacina.dao.FornecedorVacinaDao"%>
 <%@page import="projetovacina.dao.VacinasDao"%>
 <%@page import="projetovacina.models.Vacinas"%>
 <%@page import="java.util.List"%>
@@ -27,12 +29,25 @@
 	crossorigin="anonymous">
 </head>
 <%
+	String nome = "";
+	Long id = null;
+
 	FornecedorDao daof = new FornecedorDao();
 	List<Fornecedor> fornecedores = daof.findAll(Fornecedor.class);
 
 	Long vacinaid = Long.parseLong("id");
 	VacinasDao daov = new VacinasDao();
 	Vacinas vacina = daov.findById(Vacinas.class, vacinaid).get();
+	
+	FornecedorVacinaDao fvd = new FornecedorVacinaDao();
+	FornecedorVacina fv = fvd.getFornecedorVacina(vacinaid);
+	
+	for(Fornecedor forn:fornecedores){
+		if(forn.getId() == fv.getFornecedor().getId()){
+			nome = forn.getNome();
+			id = forn.getId();
+		}
+	}
 %>
 <body>
 	<form class="vh-100 gradient-custom" action="controllerVacina"
@@ -84,12 +99,14 @@
 								<div class="form-outline form-white mb-4">
 									<label class="form-label">Nome do Fornecedor</label> 
 									<select class="form-control form-control-lg" type="text" name="idFornecedor">
-										<option value="">Selecione um fornecedor</option>
+										<option value="<%=id%>"><%=nome %></option>
 									<%
 									 	for(Fornecedor f:fornecedores){
+									 		if(f.getNome() != nome){
 									 %>
 										<option value=<%=f.getId() %>><%=f.getNome()%></option>
 										<%
+									 		}
 									 	}
 									 %>
 									</select>
