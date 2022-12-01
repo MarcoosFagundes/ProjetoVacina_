@@ -1,6 +1,9 @@
 package projetovacina.servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,10 +28,23 @@ public class ServletVacina extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		VacinasDao dao = new VacinasDao();
-		long vacinasid = Long.parseLong(request.getParameter("vacinasid"));
-		dao.Inativar(vacinasid);
+		long idVacina = Long.parseLong(request.getParameter("vacinasid"));
 		
-		response.sendRedirect("formMenuPrincipal.jsp");
+		Vacinas vacina = dao.findById(Vacinas.class, idVacina).get();
+		if(vacina != null) {
+			vacina.setInativo(true);
+			dao.update(vacina);
+			response.sendRedirect("formMenuPrincipal.jsp");
+		}
+		else {
+			response.setContentType("text/html");
+			PrintWriter pw=response.getWriter();
+			pw.println("<script type=\"text/javascript\">");
+			pw.println("alert('Erro inesperado');");
+			pw.println("</script>");
+			RequestDispatcher rd=request.getRequestDispatcher("formMenuPrincipal.jsp");
+			rd.include(request, response);
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

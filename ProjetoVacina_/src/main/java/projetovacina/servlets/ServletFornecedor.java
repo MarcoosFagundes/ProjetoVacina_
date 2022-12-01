@@ -1,6 +1,9 @@
 package projetovacina.servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,12 +25,28 @@ public class ServletFornecedor extends HttpServlet {
         super();
     }
 
+	@SuppressWarnings("null")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		FornecedorDao dao = new FornecedorDao();
 		long fornecedorid = Long.parseLong(request.getParameter("id"));
-		dao.Inativar(fornecedorid);
-
-		response.sendRedirect("formMenuFornecedor.jsp");
+		
+		Fornecedor f = dao.findById(Fornecedor.class, fornecedorid).get();
+		if(f == null) {
+			f.setInativo(true);
+			dao.update(f);
+			response.sendRedirect("formMenuFornecedor.jsp");
+		}
+		else {
+			response.setContentType("text/html");
+			PrintWriter pw=response.getWriter();
+			pw.println("<script type=\"text/javascript\">");
+			pw.println("alert('Erro inesperado');");
+			pw.println("</script>");
+			RequestDispatcher rd=request.getRequestDispatcher("formMenuPrincipal.jsp");
+			rd.include(request, response);
+		}
+		
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
