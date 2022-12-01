@@ -35,7 +35,7 @@
 	FornecedorDao daof = new FornecedorDao();
 	List<Fornecedor> fornecedores = daof.findAll(Fornecedor.class);
 
-	Long vacinaid = Long.parseLong("id");
+	Long vacinaid = Long.parseLong(request.getParameter("id"));
 	VacinasDao daov = new VacinasDao();
 	Vacinas vacina = daov.findById(Vacinas.class, vacinaid).get();
 	

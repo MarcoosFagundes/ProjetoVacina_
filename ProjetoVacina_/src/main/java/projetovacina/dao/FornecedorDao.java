@@ -8,7 +8,7 @@ public class FornecedorDao extends Dao<Fornecedor, Long>{
 
 	public boolean Inativar(Long fornecedorid) {
 		try {
-			Query query = em.createNativeQuery("UPDATE fornecedor u SET u.inativo = 1 WHERE u.id =: fornecedorid", Fornecedor.class);
+			Query query = em.createNativeQuery("UPDATE fornecedor u SET u.inativo = true WHERE u.id =: fornecedorid", Fornecedor.class);
 			
 			query.setParameter("fornecedorid", fornecedorid);
 			query.executeUpdate();
