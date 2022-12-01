@@ -24,10 +24,10 @@ public class ServletFornecedor extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		FornecedorDao dao = new FornecedorDao();
-		long fornecedorid = Long.parseLong(request.getParameter("fornecedorid"));
+		long fornecedorid = Long.parseLong(request.getParameter("id"));
 		dao.Inativar(fornecedorid);
 
-		response.sendRedirect("formMenuPrincipal.jsp");
+		response.sendRedirect("formMenuFornecedor.jsp");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -68,7 +68,7 @@ public class ServletFornecedor extends HttpServlet {
 			dao.update(fornecedor);
 			
 		}
-		response.sendRedirect("formMenuPrincipal.jsp");
+		response.sendRedirect("formMenuFornecedor.jsp");
 	}
 
 }
