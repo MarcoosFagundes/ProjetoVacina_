@@ -77,6 +77,8 @@ public class ServletVacina extends HttpServlet {
 			novaVacina.setId(novaVacina.getId());
 			daof.setVacinas(novaVacina);
 			fDao.save(daof);
+			
+			response.sendRedirect("formMenuPrincipal.jsp");
 
 		} else {
 			long vacinasid = Long.parseLong(request.getParameter("vacinasid"));
@@ -98,7 +100,15 @@ public class ServletVacina extends HttpServlet {
 			vacinas.setId(vacinas.getId());
 			daof.setVacinas(vacinas);
 			fDao.update(daof);
+			
+			if(vacinas.isInativo()) {
+				response.sendRedirect("formMenuPrincipalinativos.jsp");
+			}
+			else {
+				response.sendRedirect("formMenuPrincipal.jsp");
+			}
+			
 		}
-		response.sendRedirect("formMenuPrincipal.jsp");
+		
 	}
 }
